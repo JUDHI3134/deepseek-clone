@@ -1,5 +1,6 @@
 "use client"
 import { assets } from "@/assets/assets";
+import Sidebar from "@/components/Sidebar";
 import Image from "next/image";
 import { useState } from "react";
 
@@ -13,6 +14,7 @@ export default function Home() {
     <div>
       <div className="flex h-screen">
         {/* -----------sidebar----------------- */}
+        <Sidebar expand={expand} setExpand={setExpand} />
         <div className="flex flex-1 flex-col items-center justify-center px-4 pb-8 text-white bg-[#292a2d] relative">
           <div className="px-4 md:hidden absolute top-6 flex items-center justify-between w-full">
             <Image onClick={()=>(expand ? setExpand(false) : setExpand(true))}
