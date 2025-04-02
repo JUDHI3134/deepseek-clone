@@ -1,5 +1,7 @@
 "use client"
 import { assets } from "@/assets/assets";
+import Message from "@/components/Message";
+import PromptBox from "@/components/PromptBox";
 import Sidebar from "@/components/Sidebar";
 import Image from "next/image";
 import { useState } from "react";
@@ -22,7 +24,7 @@ export default function Home() {
             <Image className="opacity-70" src={assets.chat_icon} alt="" />
           </div>
 
-          {messages.length === 0
+          {messages.length !== 0
             ?
             (<>
               <div className="flex items-center gap-3">
@@ -33,10 +35,10 @@ export default function Home() {
             </>)
             :
             (<div>
-              
+              <Message role='user' content='What is next js' />
             </div>)}
           
-          {/* prompt box  */}
+          <PromptBox isLoading={isLoading} setIsLoading={setIsLoading} />
           <p className="text-xs absolute bottom-1 text-gray-500">AI-Generated, for reference only</p>
 
         </div>
